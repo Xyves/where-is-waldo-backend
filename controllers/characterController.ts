@@ -1,4 +1,3 @@
-const db = require("../db/query");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const Fetch3Characters = async (req: any, res: any) => {
