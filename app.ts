@@ -3,9 +3,10 @@ const app = express();
 const bodyParser = require("body-parser");
 const port = 3000;
 const cors = require("cors");
-const characterRouter = require("./routes/characters");
-const scoreboardRouter = require("./routes/scoreboard");
 app.use(cors());
+const scoreRouter = require("./routes/scoreboard");
+const charactersRouter = require("./routes/characters");
+const commentsRouter = require("./routes/commentsRouter");
 app.use((req: any, res: any, next: any) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -19,8 +20,8 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 // Routes
-app.use("/api/characters", characterRouter);
-app.use("/api/scoreboard", scoreboardRouter);
+app.use("/api/characters", charactersRouter);
+app.use("/api/scoreboard", scoreRouter);
 
 app.all("*", (req: any, res: any) => {
   try {
