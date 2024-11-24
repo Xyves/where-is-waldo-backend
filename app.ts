@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require("body-parser");
 const port = 3000;
 const cors = require("cors");
-
 app.use(cors());
 app.use((req: any, res: any, next: any) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -16,8 +15,10 @@ app.use((req: any, res: any, next: any) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
+
 // Routes
-app.use("/api", router);
+app.use("/api/characters", characterRouter);
+app.use("/api/scoreboard", scoreboardRouter);
 
 app.all("*", (req: any, res: any) => {
   try {
