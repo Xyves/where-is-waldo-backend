@@ -1,4 +1,5 @@
-const scoreboardRouter = express.Router();
+const { Router } = require("express");
+const scoreboardRouter = Router();
 const scoreboardController = require("../controllers/scoreboardController");
 
 scoreboardRouter.get("/", scoreboardController.fetchScores);

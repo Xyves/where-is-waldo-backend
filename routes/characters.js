@@ -1,4 +1,5 @@
-const characterRouter = express.Router();
+const { Router } = require("express");
+const characterRouter = Router();
 const characterController = require("../controllers/characterController");
 
 // Fetch 3 characters
