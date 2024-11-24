@@ -6,7 +6,7 @@ const cors = require("cors");
 app.use(cors());
 const scoreRouter = require("./routes/scoreboard");
 const charactersRouter = require("./routes/characters");
-const commentsRouter = require("./routes/commentsRouter");
+
 app.use((req: any, res: any, next: any) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
