@@ -1,3 +1,5 @@
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 export const fetchScores = async (req: any, res: any) => {
   const results = await prisma.scoreboard.findMany();
   return res.status(200).json({ results });
