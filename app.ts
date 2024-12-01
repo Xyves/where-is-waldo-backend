@@ -21,12 +21,8 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 // Routes
-app.use("/", (req: any, res: any) => {
-  res.json("Working route");
-});
 app.use("/api", charactersRouter);
 app.use("/api/scoreboard", scoreRouter);
-
 app.all("*", (req: any, res: any) => {
   try {
     res.status(404).json({
@@ -40,9 +36,3 @@ app.all("*", (req: any, res: any) => {
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-type ErrorResponse = {
-  timestamp: number;
-  msg: string;
-  code: number;
-};
