@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 // Routes
-app.use("/api", charactersRouter);
+app.use("/api/characters", charactersRouter);
 app.use("/api/scoreboard", scoreRouter);
 app.all("*", (req: any, res: any) => {
   try {

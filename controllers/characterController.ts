@@ -33,13 +33,14 @@ const FetchCharacterById = async (req: any, res: any) => {
 };
 
 const createCharacter = async (req: any, res: any) => {
-  const { name, image, positionX, positionY } = req.body;
+  const { character_name, character_image, coordinateX, coordinateY } =
+    req.body;
   const character = await prisma.characters.create({
     data: {
-      character_name: name,
-      character_image: image,
-      coordinateX: positionX,
-      coordinateY: positionY,
+      character_name,
+      character_image,
+      coordinateX,
+      coordinateY,
     },
   });
   res.json(character);
