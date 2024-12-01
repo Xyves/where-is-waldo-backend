@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const port = 3000;
 const cors = require("cors");
 app.use(cors());
+const PORT = process.env.PORT || 4000;
 const scoreRouter = require("./routes/scoreboard");
 const charactersRouter = require("./routes/characters");
 
@@ -38,9 +39,8 @@ app.all("*", (req: any, res: any) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 type ErrorResponse = {
   timestamp: number;
   msg: string;
