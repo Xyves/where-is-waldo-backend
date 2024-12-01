@@ -20,6 +20,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 // Routes
+app.use("/", (req, res) => {
+  res.json("Working route");
+});
 app.use("/api", charactersRouter);
 app.use("/api/scoreboard", scoreRouter);
 
