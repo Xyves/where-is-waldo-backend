@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 // Routes
-app.use("/", (req, res) => {
+app.use("/", (req: any, res: any) => {
   res.json("Working route");
 });
 app.use("/api", charactersRouter);
