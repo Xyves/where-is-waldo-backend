@@ -1,10 +1,16 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const Fetch3Characters = async (req: any, res: any) => {
-  const characters = await prisma.characters.findMany()?.categories;
-  const sortedCharacters =
-    characters?.sort(() => Math.random() - 0.5).slice(0, 3) || [];
-  res.status(200).json(sortedCharacters);
+  try {
+    const characters = await prisma.characters.findMany();
+    const sortedCharacters = characters
+      ?.sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+    res.status(200).json(sortedCharacters);
+  } catch (error) {
+    console.error("Error fetching characters", error);
+    res.status(500).json({ error: "Failed to fetch characters" });
+  }
 };
 const FetchCharacterByCoords = async (req: any, res: any) => {
   const { coordinateX, coordinateY } = req.body;
