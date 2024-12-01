@@ -2,7 +2,9 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const Fetch3Characters = async (req: any, res: any) => {
   const characters = await prisma.characters.findMany()?.categories;
-  return characters?.sort(() => Math.random() - 0.5).slice(0, 3) || [];
+  const sortedCharacters =
+    characters?.sort(() => Math.random() - 0.5).slice(0, 3) || [];
+  res.status(200).json(sortedCharacters);
 };
 const FetchCharacterByCoords = async (req: any, res: any) => {
   const { coordinateX, coordinateY } = req.body;
