@@ -42,7 +42,7 @@ const createCharacter = async (req: any, res: any) => {
       coordinateY: positionY,
     },
   });
-  return character;
+  res.json(character);
 };
 module.exports = {
   Fetch3Characters,
