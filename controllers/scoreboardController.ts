@@ -5,17 +5,17 @@ export const fetchScores = async (req: any, res: any) => {
   return res.status(200).json({ results });
 };
 export const postScore = async (req: any, res: any) => {
-  const { name, time } = req.body;
-  if (!name || !time) {
-    return res.status(400).json({ error: "name and time are required" });
+  const { username, time } = req.body;
+  if (!username || !time) {
+    return res.status(400).json({ error: "username and time are required" });
   }
 
   try {
     const score = await prisma.scoreboard.create({
-      data: { name: name, time: time },
+      data: { username, time },
     });
 
-    return res.status(201).json(score);
+    res.status(201).json(score);
   } catch (error) {
     console.error("Error creating comment:", error);
     return res
