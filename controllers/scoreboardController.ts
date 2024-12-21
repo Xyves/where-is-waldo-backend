@@ -15,7 +15,7 @@ export const postScore = async (req: any, res: any) => {
       data: { username, time },
     });
 
-    res.status(201).json(score);
+    return res.status(201).json(score);
   } catch (error) {
     console.error("Error creating comment:", error);
     return res
