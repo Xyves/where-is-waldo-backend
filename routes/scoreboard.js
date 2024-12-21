@@ -4,6 +4,6 @@ const scoreboardController = require("../controllers/scoreboardController");
 
 scoreboardRouter.get("/", scoreboardController.fetchScores);
 
-scoreboardRouter.post("/create", scoreboardController.postScore);
+scoreboardRouter.post("/", scoreboardController.postScore);
 
 module.exports = scoreboardRouter;
