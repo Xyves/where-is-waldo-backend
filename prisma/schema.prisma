@@ -8,9 +8,9 @@ datasource db {
 }
 
 model Scoreboard {
-  id   String   @id @default(uuid())
-  name String?
-  time DateTime
+  id       String @id @default(uuid())
+  username String
+  time     Int
 }
 
 model Characters {
