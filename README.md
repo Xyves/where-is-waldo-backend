@@ -17,7 +17,7 @@ Welcome to the Where's Waldo Backend, the core server-side component of the phot
 
 ## ✨ Features
 
-- **Leaderboard API** – Store and retrieve user scores, including time, username, and submission date.
+- **Leaderboard API** – Store and retrieve user scores, including time and username.
 - **Character Validation** – API endpoint to check if the clicked character is correct.
 - **Custom Error Handling** – API responses are clearly structured to handle errors.
 
